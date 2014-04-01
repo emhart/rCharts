@@ -3,6 +3,7 @@ Leaflet = setRefClass('Leaflet', contains = 'rCharts', methods = list(
     callSuper()
     .self$tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png')
     params$addons <<- list(enablePopover = FALSE)
+    params$markercluster <<- list()
   },
   enablePopover = function(e = TRUE){
     params$addons$enablePopover <<- e
@@ -27,14 +28,22 @@ Leaflet = setRefClass('Leaflet', contains = 'rCharts', methods = list(
       )
     }
   },
+  
   marker = function(LatLng, ...){
     m = list(
+      
       marker = as.list(LatLng),
       addTo = '#! map !#',
       ...
     )
     params$marker <<- c(params$marker, list(m))
+    },
+  
+  
+  markercluster = function(LatLng, ...){
+    params$markercluster <<- c(params$markercluster, list(LatLng))
   },
+        
   circle = function(LatLng, radius = 500, ...){
     circle_ = list(
       circle = LatLng,

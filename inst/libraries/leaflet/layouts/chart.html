@@ -14,7 +14,14 @@
 		  L.tileLayer(spec.urlTemplate, spec.layerOpts).addTo(map)
     }
      
-    {{{ marker }}}
+   if (spec.markercluster){
+     var markers = L.markerClusterGroup();
+     for(var i = 0; i < spec.markercluster.length; i++){
+        markers.addLayer(L.marker(spec.markercluster[i]));
+     }
+     map.addLayer(markers)
+
+   }
     
     {{{ circle }}}
     
@@ -104,5 +111,16 @@
                                                 
    map.addLayer(kmlLayer);
    {{/addons.kml}}
+   
+   {{#addons.markercluster}}
+   var markers = L.markerClusterGroup();
+   for(var i = 0; i < spec.markercluster.length; i++){
+   markers.addLayer(L.marker(data[i]));
+
+
+}
+
+map.addLayer(markers)
+   {{/addons.markercluster}}
    
 </script>
