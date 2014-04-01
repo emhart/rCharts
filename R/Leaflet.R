@@ -39,11 +39,20 @@ Leaflet = setRefClass('Leaflet', contains = 'rCharts', methods = list(
     params$marker <<- c(params$marker, list(m))
     },
   
-  
+  #### Code added by Ted
   markercluster = function(LatLng, ...){
     params$markercluster <<- c(params$markercluster, list(LatLng))
   },
-        
+  ### Takes a matrix of lat lon coordinates
+  ### Adds them in.
+  addCluster = function(mat,...){
+    ### Some error handling.
+    if(is.data.frame(mat)){mat <- as.matrix(mat)}
+    if(dim(mat)[2] != 2 || !is.numeric(mat[1,1])){ stop("Please enter a valid numeric matrix of latitude and longitudes")}
+    invisible(apply(mat,1,.self$markercluster))
+    
+  },
+ #### End code added by Ted       
   circle = function(LatLng, radius = 500, ...){
     circle_ = list(
       circle = LatLng,
