@@ -16,9 +16,7 @@
      
    if (spec.markercluster){
      var markers = L.markerClusterGroup();
-     for(var i = 0; i < spec.markercluster.length; i++){
-        markers.addLayer(L.marker(spec.markercluster[i]));
-     }
+     spec.markercluster.map(function(l){markers.addLayer(L.marker(l))});
      map.addLayer(markers)
 
    }
