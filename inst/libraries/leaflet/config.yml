@@ -6,8 +6,13 @@ leaflet:
     - external/Control.FullScreen.js
   
   cdn:
-    css: http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.css
+    css: 
+      - http://cdn.leafletjs.com/leaflet-0.7/leaflet.css
+      - http://rawgithub.com/Leaflet/Leaflet.markercluster/master/dist/MarkerCluster.css
+      - http://rawgithub.com/Leaflet/Leaflet.markercluster/master/dist/MarkerCluster.Default.css
     jshead: 
-      - http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js
-      - https://rawgithub.com/leaflet-extras/leaflet-providers/gh-pages/leaflet-providers.js
-      - "http://harrywood.co.uk/maps/examples/leaflet/leaflet-plugins/layer/vector/KML.js"
+      - http://cdn.leafletjs.com/leaflet-0.7/leaflet.js
+      - http://rawgithub.com/leaflet-extras/leaflet-providers/gh-pages/leaflet-providers.js
+      - http://harrywood.co.uk/maps/examples/leaflet/leaflet-plugins/layer/vector/KML.js
+      - http://rawgithub.com/Leaflet/Leaflet.markercluster/master/dist/leaflet.markercluster-src.js
+      
